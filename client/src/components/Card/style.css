@@ -1,0 +1,13 @@
+.scroll-box {
+    overflow-y: scroll;
+    height: 400px;
+    padding: 1rem
+}
+
+.card {
+    border: none
+}
+
+hr {
+    border: 2px solid black;
+}
