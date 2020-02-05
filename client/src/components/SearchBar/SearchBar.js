@@ -5,7 +5,7 @@ function SearchBar(props) {
   return (
     <form>
         <div className="form-group">
-            <label htmlFor="search">Search:</label>
+            <label htmlFor="search"><h3>Search:</h3></label>
             <input
                 onChange={props.handleInputChange}
                 value={props.search}
@@ -16,7 +16,7 @@ function SearchBar(props) {
                 id="search"
             />
             <br />
-            <button onClick={props.handleFormSubmit} className="btn btn-primary">
+            <button onClick={props.handleFormSubmit} className="btn btn-primary text-center">
                 Search
             </button>
         </div>
