@@ -24,7 +24,9 @@ function Card(props) {
                 <div className="col-md-4">
                     <div className="card">
                         <div className="card-body text-center">
-                            <a href={ props.link } target="_blank" rel="noopener noreferrer" className="btn btn-primary">Learn More</a>
+                            <a href={ props.link } target="_blank" rel="noopener noreferrer" className="btn btn-primary my-button">Learn More</a>
+                            <button className="btn btn-warning my-button" onClick={ () => props.saveBook(props.index) }>Save</button>
+
                         </div>
                     </div>
                 </div>

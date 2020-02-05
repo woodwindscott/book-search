@@ -6,16 +6,30 @@ import SearchBar from "../SearchBar/SearchBar";
 
 class Wrapper extends Component {
   state = {
-    result: {},
+    result: [],
+    saved: {},
     search: ""
   };
 
+
+  componentDidMount() {
+    console.log(this.state);
+  }
+  saveBook = (index) => {
+
+    console.log(`Index of saved result: ${index}`);
+    this.setState({
+      saved: this.state.result[index]
+      }, function() {
+        API.saveBook(this.state.saved)
+    }
+  )};
+
+  // COMPLETE
   searchBooks = query => {
     API.search(query)
       .then(res => {
-        // console.log(res.data.items[0]);
         this.setState({ result: res.data.items });
-        console.log(this.state.result[0]);
       }).catch(err => console.log(err));       
   };
 
@@ -24,7 +38,7 @@ class Wrapper extends Component {
     this.setState({
       search: value
     });
-  };
+  }; 
 
 //   // When the form is submitted, search the Google Books API for the value of `this.state.search`
   handleFormSubmit = event => {
@@ -39,6 +53,15 @@ class Wrapper extends Component {
       } else {
           return array;
       }
+  }
+
+  checkForThumbnail = (item) => {
+    console.log(item)
+    if (item.volumeInfo.imageLinks) {
+      return item.volumeInfo.imageLinks.thumbnail
+    } else {
+      return "./images/image-not-available.png"
+    }
   }
 
   render() {
@@ -59,9 +82,11 @@ class Wrapper extends Component {
                     index={ i }
                     authors={ this.separateAuthors(item.volumeInfo.authors) }
                     description={ item.volumeInfo.description }
-                    image={ item.volumeInfo.imageLinks.thumbnail }
+                    // image={ item.volumeInfo.imageLinks.thumbnail }
+                    image={ this.checkForThumbnail(item) }
                     link={ item.volumeInfo.infoLink }
                     title={ item.volumeInfo.title }
+                    saveBook={ this.saveBook }
                 />
             ))
             :

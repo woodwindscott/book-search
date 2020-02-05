@@ -8,6 +8,10 @@
     border: none
 }
 
+.btn {
+    margin: 5px;
+}
+
 hr {
     border: 2px solid black;
 }
