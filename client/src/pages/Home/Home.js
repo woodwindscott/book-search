@@ -10,12 +10,14 @@ class Home extends Component {
   state = {
     result: [],
     saved: {},
-    search: ""
+    search: "",
+    currentPage: "Home"
   };
 
 
   componentDidMount() {
     console.log(this.state);
+    console.log(this.state.currentPage);
   }
   saveBook = (index) => {
 
@@ -92,6 +94,7 @@ class Home extends Component {
                         image={ this.checkForThumbnail(item) }
                         link={ item.volumeInfo.infoLink }
                         title={ item.volumeInfo.title }
+                        currentPage = {this.state.currentPage}
                         saveBook={ this.saveBook }
                     />
                 ))
