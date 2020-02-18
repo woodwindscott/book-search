@@ -15,3 +15,23 @@ Click on "Saved Books" in the navigation bar to access your reading list.  From 
 
 <img src="assets/google-books-3.png" alt="Google Books Search Saved Books">
 
+# GitHub Repo:
+https://github.com/woodwindscott/book-search/
+
+# Deployed Site:
+http://google-books-search-2020.herokuapp.com/
+
+# Technologies used
+This project was created with:
+* MongoDB
+* Express
+* NodeJS
+* React
+* HTML
+* CSS
+* JavaScript
+* Bootstrap
+
+# Future Development Considerations:
+1. 
+
