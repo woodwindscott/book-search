@@ -37,3 +37,4 @@ This project was created with:
 
 2. Similarly, to group books by category would be nice.  Either with the data provided by the Google Books API or custom categories designed by the user.
 
+3. Additionally, I think there is some room to be able to clean up the routing file structure.  Currently, it goes through too many levels and the same result could be achieved with less code and fewer files.
