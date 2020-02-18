@@ -14,6 +14,11 @@ router.route("/save-book")
 router.route("/get-saved-books")
   .get(booksController.findAll);
 
+// Matches with "/api/books/delete/book/:id"
+
+router.route("/delete-book/:id")
+  .delete(booksController.remove);
+
 // Matches with "/api/books/:id"
 router
   .route("/:id")

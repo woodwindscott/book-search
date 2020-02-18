@@ -18,6 +18,16 @@ export default {
     });
   },
 
+  deleteBook: function(bookId) {
+    console.log("Inside API.js - deleteBook function\n___________________");
+    return axios.delete('api/books/delete-book/' + bookId)
+    .then(function (response) {
+      console.log(response)
+    }).catch(function (error) {
+      console.log(error)
+    })
+  },
+
   getSavedBooks: function() {
     console.log("Inside API.js - get saved Books");
     return axios.get('/api/books/get-saved-books');

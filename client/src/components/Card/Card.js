@@ -31,7 +31,7 @@ function Card(props) {
                                 ? 
                                     ( <button className="btn btn-warning my-button" onClick={ () => props.saveBook(props.index) }>Save</button> )
                                 :
-                                    ( <button className="btn btn-danger my-button" onClick={ () => props.removeBook(props.index) }>Remove</button> )
+                                    ( <button className="btn btn-danger my-button" onClick={ () => props.removeBook(props.id) }>Remove</button> )
 
                             } 
 

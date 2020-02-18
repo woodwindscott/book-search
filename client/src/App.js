@@ -3,9 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from './pages/Home/Home';
 import Saved from './pages/Saved/Saved';
-// import Book from './pages/Book';
 import NavBar from './components/NavBar/NavBar';
-// import NotFound from './pages/NotFound/NotFound';
+import NotFound from './pages/NotFound/NotFound';
+
+// Future Development - page display for single book
+// import Book from './pages/Book';
+
 
 class App extends Component {
   render() {
@@ -16,8 +19,9 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/saved" component={Saved} />
-          {/* <Route exact path="/books/:id" component={Book} /> */}
-          {/* <Route component={NotFound} /> */}
+            {/* Potential future update to show single book on its own page */}
+            {/* <Route exact path="/books/:id" component={Book} /> */}
+          <Route component={NotFound} />
         </Switch>
 
       </Router>

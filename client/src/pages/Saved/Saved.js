@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import Card from "../../components/Card/Card";
-import NavBar from "../../components/NavBar/NavBar"
 import './style.css'
-
-import SearchBar from "../../components/SearchBar/SearchBar";
 
 class Saved extends Component {
 
@@ -15,40 +12,27 @@ class Saved extends Component {
 
 
     componentDidMount() {
-        console.log(this.state.currentPage);
         let that = this;
         API.getSavedBooks().then(function(response) {
-            console.log("Inside Set State");
-            // console.log(response)
             that.setState({
                 savedBooks: response.data
             })
         })
     }
 
-    // COMPLETE
-    searchBooks = query => {
-        API.search(query)
-        .then(res => {
-            this.setState({ result: res.data.items });
-            this.setState({ search: ""});
-        }).catch(err => console.log(err));       
-    };
-
-    removeBook = (index) => {
-
-        console.log(`Index of saved result to be removed: ${index}`);
-        // this.setState({
-        // saved: this.state.result[index]
-        // }, function() {
-        //     API.saveBook(this.state.saved)
-        // }
-        console.log("Trying to remove book");
-
+    removeBook = (bookId) => {
+        let that = this;
+        console.log(`result to be removed (Book ID): ${bookId}`);
+        API.deleteBook(bookId)
+        .then(function() {
+            API.getSavedBooks().then(function(response) {
+                that.setState({
+                    savedBooks: response.data
+                })
+            })
+        })
     };
   
-
-
     separateAuthors = (array) => {
         if (array.length > 1) {
             return array.join(", ");
@@ -61,10 +45,7 @@ class Saved extends Component {
         return (
 
         <div>
-            {/* <NavBar /> */}
-
             <div className="container">
-
             <h1 className="text-center">Saved Books</h1>
             <hr />
                 
@@ -74,6 +55,7 @@ class Saved extends Component {
                         <Card
                             key={ i }
                             index={ i }
+                            id={ item._id }
                             authors={ this.separateAuthors(item.authors) }
                             description={ item.description }
                             image={ item.image }
