@@ -33,5 +33,7 @@ This project was created with:
 * Bootstrap
 
 # Future Development Considerations:
-1. 
+1. It would be a nice feature to allow users to "order" their saved books in whichever way they like (newest additions to oldest, by priority, etc.)
+
+2. Similarly, to group books by category would be nice.  Either with the data provided by the Google Books API or custom categories designed by the user.
 
